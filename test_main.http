@@ -23,3 +23,9 @@ Content-Type: application/json
 {
   "last_location": "100, 100"
 }
+
+###
+PUT http://localhost:8000/api/flag-infected-survivor/Piet
+Content-Type: application/json
+
+{}
