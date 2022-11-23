@@ -1,11 +1,9 @@
-# Test your FastAPI endpoints
+POST http://localhost:8000/api/add-survivor
+Content-Type: application/json
 
-GET http://127.0.0.1:8000/api
-Accept: application/json
-
-###
-
-GET http://127.0.0.1:8000/api/add-survivor
-Accept: application/json
-
-###
+{
+  "name": "Piet",
+  "age": 22,
+  "gender": "m",
+  "last_location": "45, 180"
+}
