@@ -1,11 +1,31 @@
-# Test your FastAPI endpoints
-
-GET http://127.0.0.1:8000/api
+GET http://localhost:8000/api/all-survivors
 Accept: application/json
 
 ###
-
-GET http://127.0.0.1:8000/api/add-survivor
+GET http://localhost:8000/api/all-survivors/Hannes
 Accept: application/json
 
 ###
+POST http://localhost:8000/api/add-survivor
+Content-Type: application/json
+
+{
+  "name": "Piet",
+  "age": 22,
+  "gender": "m",
+  "last_location": "45, 180"
+}
+
+###
+PUT http://localhost:8000/api/update-survivor-location/Hannes
+Content-Type: application/json
+
+{
+  "last_location": "100, 100"
+}
+
+###
+PUT http://localhost:8000/api/flag-infected-survivor/Piet
+Content-Type: application/json
+
+{}
