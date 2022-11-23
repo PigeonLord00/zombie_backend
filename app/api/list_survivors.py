@@ -1,10 +1,16 @@
 import sqlite3
 
 from flask_restful import Resource
+from flask_restful_swagger import swagger
+
 from . import api
 
 
 class ListSurvivors(Resource):
+    """Get all uninfected survivors in a list"""
+    @swagger.operation(
+        notes='An array with the details of all uninfected survivors will be returned'
+    )
     def get(self):
         db = sqlite3.connect('survivor.db')
         statement = ''' SELECT * FROM survivors'''
@@ -31,6 +37,10 @@ class ListSurvivors(Resource):
 
 
 class ListSurvivor(Resource):
+    """Get details of a specified survivor"""
+    @swagger.operation(
+        notes='Details of the survivors will be returned'
+    )
     def get(self, name: str):
         db = sqlite3.connect('survivor.db')
         statement = ''' SELECT * FROM survivors WHERE name = ?'''
