@@ -16,3 +16,10 @@ Content-Type: application/json
   "last_location": "45, 180"
 }
 
+###
+PUT http://localhost:8000/api/update-survivor-location/Hannes
+Content-Type: application/json
+
+{
+  "last_location": "100, 100"
+}
