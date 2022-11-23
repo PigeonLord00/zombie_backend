@@ -1,10 +1,16 @@
 import sqlite3
 
 from flask_restful import Resource
+from flask_restful_swagger import swagger
+
 from . import api
 
 
 class FlagInfectedSurvivor(Resource):
+    """Specify the name of a survivor who has been infected"""
+    @swagger.operation(
+        notes='Flag survivor as infected, and they will be classified as a zombie'
+    )
     def put(self, name: str):
 
         db = sqlite3.connect('survivor.db')
