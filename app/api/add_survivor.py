@@ -1,4 +1,6 @@
 from flask_restful import Resource, reqparse
+from flask_restful_swagger import swagger
+
 from . import api
 import sqlite3
 
@@ -10,6 +12,10 @@ reqparser.add_argument('last_location', type=str)
 
 
 class AddSurvivor(Resource):
+    """Add new survivors to the database with unique names"""
+    @swagger.operation(
+        notes='Specify survivor details to be added to database: (name, age, gender, last_location)'
+    )
     def post(self):
         arguments = reqparser.parse_args()
         print(arguments)
